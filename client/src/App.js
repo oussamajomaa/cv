@@ -7,12 +7,9 @@ import Page404 from './pages/Page404';
 import { SnackbarProvider } from 'notistack';
 
 function App() {
-	
 	return (
-		// <Home />
 		<SnackbarProvider>
-
-		<BrowserRouter>
+			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/admin" element={<Admin />} />

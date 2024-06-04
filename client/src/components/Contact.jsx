@@ -14,8 +14,8 @@ export default function Contact() {
 	return (
 		<div>
 			{contact &&
-				<div className='contact'>
-					<h2>Contact</h2>
+				<div className=''>
+					<h2 className='title'>Contact</h2>
 					<table>
 						<tbody key={contact[0]._id}>
 							<tr>

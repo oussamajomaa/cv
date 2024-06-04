@@ -6,6 +6,7 @@ import { LiaSaveSolid } from "react-icons/lia";
 const BASE_URL = "http://localhost:5555"
 
 export default function AdminContact() {
+
     const [tel, setTel] = useState("")
     const [mail, setMail] = useState("")
     const [adresse, setAdresse] = useState("")
@@ -13,9 +14,11 @@ export default function AdminContact() {
     const fetchContact = async () => {
         const response = await fetch(`${BASE_URL}/contact`)
         const data = await response.json()
+        console.log(data);
         setAdresse(data[0].adresse)
         setTel(data[0].tel)
         setMail(data[0].mail)
+
     }
 
     useEffect(() => {
@@ -48,14 +51,6 @@ export default function AdminContact() {
         <div className='contact'>
             <h2 className=''>Contact</h2>
             <form onSubmit={handleSave}  >
-                <div className='admin-contact'>
-                    <label>Nom</label>
-                    <input type="text" value={tel} onChange={(e) => setTel(e.target.value)} />
-                </div>
-                <div className='admin-contact'>
-                    <label>Prénom</label>
-                    <input type="text" value={tel} onChange={(e) => setTel(e.target.value)} />
-                </div>
                 <div className='admin-contact'>
                     <label>Tel</label>
                     <input type="text" value={tel} onChange={(e) => setTel(e.target.value)} />
