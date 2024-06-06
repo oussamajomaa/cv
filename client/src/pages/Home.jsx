@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import Contact from '../components/Contact';
-import Experience from '../components/Experience';
-import Formation from '../components/Formation';
-import Langue from '../components/Langue';
-import Competence from '../components/Competence';
-import Loisir from '../components/Loisir';
+import Contact from '../components/ui/Contact';
+import Experience from '../components/ui/Experience';
+import Formation from '../components/ui/Formation';
+import Langue from '../components/ui/Langue';
+import Competence from '../components/ui/Competence';
+import Loisir from '../components/ui/Loisir';
 
 const BASE_URL = "http://localhost:5555"
 

@@ -4,9 +4,7 @@ import { LiaSaveSolid } from "react-icons/lia";
 
 
 const BASE_URL = "http://localhost:5555"
-
 export default function AdminContact() {
-
     const [tel, setTel] = useState("")
     const [mail, setMail] = useState("")
     const [adresse, setAdresse] = useState("")
@@ -43,9 +41,7 @@ export default function AdminContact() {
                     vertical: 'top',
                 }
             })
-
         }
-
     }
     return (
         <div className='contact'>

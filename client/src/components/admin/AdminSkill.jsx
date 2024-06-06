@@ -69,7 +69,7 @@ export default function AdminSkill() {
     }
 
     return (
-        <div className='competence'>
+        <div className='langue block'>
             <div className='flex-add'>
                 <h2 className=''>Compétences</h2>
                 {!add &&

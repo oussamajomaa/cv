@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react';
 
+
+
+
 const BASE_URL = "http://localhost:5555"
 export default function Contact() {
 	const [contact, setContact] = useState()

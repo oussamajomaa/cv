@@ -171,18 +171,21 @@ table th {
 
 /* diviser la page en trois colonne */
 .admin{
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+  justify-content: space-evenly;
 }
 .admin .row{
-  padding: 1rem;
   display: flex;
   gap: 2rem;
   align-items: flex-end;
+  flex-direction: column;
 }
 
 .admin .col{
-  width: 33%;
+  width:45%;
 }
 
 /* Les titres de niveau2 dans la page admin */
@@ -215,6 +218,7 @@ table th {
   padding: 10px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   border-radius: 10px;
+  width: 100%;
 }
 
 .admin-contact input{
