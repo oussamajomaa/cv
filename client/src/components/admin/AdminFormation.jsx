@@ -19,7 +19,6 @@ export default function AdminFormation() {
         const response = await fetch(`${BASE_URL}/formation`)
         const data = await response.json()
         setFormation(data)
-        console.log(data);
     }
 
     useEffect(() => {
@@ -27,7 +26,7 @@ export default function AdminFormation() {
     }, [])
 
     const handleDelete = async (id) => {
-        const response = await fetch(`${BASE_URL}/langue/${id}`, {
+        const response = await fetch(`${BASE_URL}/formation/${id}`, {
             method: 'DELETE',
         })
         if (response.ok) {
@@ -56,7 +55,7 @@ export default function AdminFormation() {
     }
 
     const handleSave = async () => {
-        const response = await fetch(`${BASE_URL}/langue`, {
+        const response = await fetch(`${BASE_URL}/formation`, {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
@@ -80,39 +79,36 @@ export default function AdminFormation() {
         }
     }
     return (
-        <div className='langue'>
-            <div className='flex-add'>
-
-                <h2 className='item'>Formations</h2>
+        <div className='shadow-xl p-5 rounded-xl'>
+            <div className='flex justify-center gap-3 items-center'>
+                <h2 className='text-2xl text-center font-bold'>Formations</h2>
                 {!add &&
-                    <div className='item'>
-                        <button onClick={handleAdd}>
-                            <MdAddBox color='blue' size={20} />
-                        </button>
-                    </div>
+                    <button onClick={handleAdd}>
+                        <MdAddBox color='blue' size={20} />
+                    </button>
                 }
             </div>
             {add &&
-                <div className='add-skill'>
+                <div className='flex gap-3 mt-3'>
                     <input
-                        className='admin-input'
+                        className="mb-2 input input-bordered input-success w-full "
                         placeholder='Année'
                         type='text'
                         value={year}
                         onChange={(e) => { setYear(e.target.value) }} />
                     <input
-                        className='admin-input'
+                        className="mb-2 input input-bordered input-success w-full "
                         placeholder='Etablissement'
                         type='text'
                         value={establishment}
                         onChange={(e) => { setEstablishment(e.target.value) }} />
                     <input
-                        className='admin-input'
+                        className="mb-2 input input-bordered input-success w-full "
                         placeholder='Diplôme'
                         type='text'
                         value={description}
                         onChange={(e) => { setDescription(e.target.value) }} />
-                    
+
 
                     <div className='btn-save-close'>
                         <button onClick={handleClose}><IoCloseCircle color='#E91E63' size={20} /></button>
@@ -120,23 +116,25 @@ export default function AdminFormation() {
                     </div>
                 </div>
             }
-            
-            {formation && formation.map(item =>
-                <div className='block' key={item._id}>
-                    <div className='exp-formation'>
-                        <h4>Année</h4>
-                        <p>{item.year}</p>
-                    </div>
-                    <div className='exp-formation'>
-                        <h4>Entreprise</h4>
-                        <p>{item.establishment}</p>
-                    </div>
-                    <div className='exp-formation'>
-                        <h4>Poste</h4>
-                        <p>{item.description}</p>
-                    </div>
 
-                    <button><MdDelete color='#E91E63' size={20} onClick={() => handleDelete(item._id)} /></button>
+            {formation && formation.map(item =>
+                <div className='flex mb-3 p-2 shadow' key={item._id}>
+                    <div className='w-11/12'>
+                        <div className='flex '>
+                            <h4 className='w-1/5'>Année</h4>
+                            <p>{item.year}</p>
+                        </div>
+                        <div className='flex '>
+                            <h4 className='w-1/5'>Etablissement</h4>
+                            <p>{item.establishment}</p>
+                        </div>
+                        <div className='flex '>
+                            <h4 className='w-1/5'>Diplôme</h4>
+                            <p>{item.description}</p>
+                        </div>
+
+                    </div>
+                        <button><MdDelete color='#E91E63' size={20} onClick={() => handleDelete(item._id)} /></button>
                 </div>)
             }
 

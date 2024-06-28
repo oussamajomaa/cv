@@ -12,7 +12,7 @@ router.get('/formation',async(req,res)=>{
 router.post('/formation',async(req,res)=>{
     const formation = req.body
     await formationModel.create(formation)
-    res.json(formation)
+    res.json({message:`L'experience ${formation.diplome} a été ajoutée`})
 })
 
 // Une route pour modifier une formation

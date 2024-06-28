@@ -69,36 +69,30 @@ export default function AdminSkill() {
     }
 
     return (
-        <div className='langue block'>
-            <div className='flex-add'>
-                <h2 className=''>Compétences</h2>
+        <div className='shadow-xl p-5 rounded-xl'>
+            <div className='flex justify-center gap-3 items-center'>
+                <h2 className='text-2xl text-center font-bold'>Compétences</h2>
                 {!add &&
-                    <div className=''>
-                        <button onClick={handleAdd}>
-                            <MdAddBox color='blue' size={20} />
-                        </button>
-                    </div>
+                    <button onClick={handleAdd}>
+                        <MdAddBox color='blue' size={20} />
+                    </button>
                 }
-
             </div>
             {add &&
-                <div className='add-skill'>
+                <div className='flex gap-3 mt-3'>
                     <input
-                        className='admin-input'
+                        type="text"
                         placeholder='Ajouter une compétence'
-                        type='text'
+                        className="mb-2 input input-bordered input-success w-full "
                         value={skill}
                         onChange={(e) => { setSkill(e.target.value) }} />
-                    <div className='btn-save-close'>
-                        <button onClick={handleClose}><IoCloseCircle color='#E91E63' size={20} /></button>
-                        <button onClick={handleSave}><LiaSaveSolid color='green' size={20} /></button>
-                    </div>
+                    <button onClick={handleClose}><IoCloseCircle color='#E91E63' size={20} /></button>
+                    <button onClick={handleSave}><LiaSaveSolid color='green' size={20} /></button>
                 </div>
             }
 
-
             {competence && competence.map(item =>
-                <div className='admin-competence' key={item._id}>
+                <div className='flex justify-between mb-3 shadow' key={item._id}>
                     <p>{item.skill}</p>
                     <button><MdDelete color='#E91E63' size={20} onClick={() => handleDelete(item._id)} /></button>
                 </div>)

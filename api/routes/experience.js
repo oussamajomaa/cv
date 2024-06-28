@@ -11,7 +11,7 @@ router.get('/experience', async(req,res)=> {
 router.post('/experience', async(req,res)=> {
     const experience = req.body
     await experienceModel.create(experience)
-    res.json(experience)
+    res.json({message:`L'experience ${experience.job} a été ajoutée`})
 })
 
 router.put('/experience/:id', async(req,res)=> {

@@ -6,7 +6,6 @@ export default function Formation() {
         const response = await fetch(`${BASE_URL}/formation`)
         const data = await response.json()
         setFormation(data)
-        console.log(data);
     }
 
     useEffect(() => {
@@ -14,7 +13,7 @@ export default function Formation() {
     }, [])
     return (
         <div>
-            <h2 className='title'>Formations</h2>
+            <h2 className='text-2xl text-center font-bold bg-[#313B6D] rounded-lg p-1 text-white mb-5'>Formations</h2>
 
             {formation && formation.map(item =>
                 <div key={item._id} className='block'>

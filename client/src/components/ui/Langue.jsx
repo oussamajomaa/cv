@@ -14,7 +14,7 @@ export default function Langue() {
     }, [])
     return (
         <div>
-            <h2 className='title'>Langues</h2>
+            <h2 className='text-2xl text-center font-bold bg-[#313B6D] rounded-lg p-1 text-white mb-5'>Langues</h2>
             <table>
                 <tbody>
                     {langue && langue.map(item =>

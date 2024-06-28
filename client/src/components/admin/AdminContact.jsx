@@ -1,70 +1,67 @@
-import { useState, useEffect } from 'react';
-import { enqueueSnackbar } from 'notistack';
-import { LiaSaveSolid } from "react-icons/lia";
+import React, { useEffect, useState } from 'react'
 
-
-const BASE_URL = "http://localhost:5555"
 export default function AdminContact() {
-    const [tel, setTel] = useState("")
-    const [mail, setMail] = useState("")
-    const [adresse, setAdresse] = useState("")
-
-    const fetchContact = async () => {
-        const response = await fetch(`${BASE_URL}/contact`)
+    const [nom,setNom] = useState('')
+    const [prenom,setPrenom] = useState('')
+    const [tel, setTel] = useState('')
+    const [email, setEmail] = useState('')
+    const [adresse, setAdresse] = useState('')
+   
+    async function fetchContact() {
+        const response = await fetch('http://localhost:3333/contact')
         const data = await response.json()
-        console.log(data);
-        setAdresse(data[0].adresse)
+        console.log(data)
+        setNom(data[0].nom)
+        setPrenom(data[0].prenom)
         setTel(data[0].tel)
-        setMail(data[0].mail)
-
+        setEmail(data[0].email)
+        setAdresse(data[0].adresse)
     }
 
     useEffect(() => {
         fetchContact()
     }, [])
 
-    const handleSave = async (e) => {
-        e.preventDefault()
-
-        const response = await fetch(`${BASE_URL}/contact`, {
+    function handleSubmit(event){
+        event.preventDefault()
+        console.log(tel, email, adresse)
+        fetch('http://localhost:3333/contact', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
+            headers:{
+                "Content-Type":"application/json"
             },
-            body: JSON.stringify({ tel, mail, adresse })
+            body: JSON.stringify({nom, prenom,tel,email,adresse})
         })
-        if (response.ok) {
-            const data = await response.json()
-            enqueueSnackbar(data.message, {
-                variant: 'success', autoHideDuration: 2000, anchorOrigin: {
-                    horizontal: 'center',
-                    vertical: 'top',
-                }
-            })
-        }
+        .then(response => response.json())
+        .then(data => console.log(data))
     }
     return (
-        <div className='contact'>
-            <h2 className=''>Contact</h2>
-            <form onSubmit={handleSave}  >
-                <div className='admin-contact'>
-                    <label>Tel</label>
-                    <input type="text" value={tel} onChange={(e) => setTel(e.target.value)} />
-                </div>
-                <div className='admin-contact'>
-                    <label>Mail</label>
-                    <input type="text" value={mail} onChange={(e) => setMail(e.target.value)} />
-                </div>
-                <div className='admin-contact'>
-                    <label>Adresse</label>
-                    <input type="text" value={adresse} onChange={(e) => setAdresse(e.target.value)} />
-                </div>
-                <div className='flex-end'>
-                    <button><LiaSaveSolid color='green' size={20} /></button>
-
-                </div>
-            </form>
-
-        </div>
+        <form onSubmit={handleSubmit}>
+            <div className=''>
+                <label>Tel</label>
+                <input 
+                    className="input input-bordered input-primary w-full"
+                    type="text" 
+                    value={tel}
+                    onChange={(e)=> setTel(e.target.value)} />
+            </div>
+            <div className=''>
+                <label>Email</label>
+                <input 
+                    className="input input-bordered input-primary w-full" 
+                    type="text" 
+                    value={email} 
+                    onChange={(e) => setEmail(e.target.value)} />
+            </div>
+            <div className=''>
+                <label>Adresse</label>
+                <input 
+                    className="input input-bordered input-primary w-full"
+                    type="text" 
+                    value={adresse} 
+                    onChange={(e) => setAdresse(e.target.value)} />
+            </div>
+            <button>Valider</button>
+        </form>
     )
 }

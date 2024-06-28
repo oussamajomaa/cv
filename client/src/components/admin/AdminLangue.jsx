@@ -75,28 +75,26 @@ export default function AdminLangue() {
         }
     }
     return (
-        <div className='langue'>
-            <div className='flex-add'>
-
-                <h2 className='item'>Langues</h2>
+        <div className='shadow-xl p-5 rounded-xl'>
+            <div className='flex justify-center gap-3 items-center mb-3'>
+                <h2 className='text-2xl text-center font-bold '>Langues</h2>
                 {!add &&
-                    <div className='item'>
-                        <button onClick={handleAdd}>
-                            <MdAddBox color='blue' size={20} />
-                        </button>
-                    </div>
+                    <button onClick={handleAdd}>
+                        <MdAddBox color='blue' size={20} />
+                    </button>
                 }
             </div>
             {add &&
-                <div className='add-skill'>
+                <div className='flex gap-3 mt-3'>
                     <input
-                        className='admin-input'
-                        placeholder='Langue'
+                        className="mb-2 input input-bordered input-success w-full "
+                        placeholder='Ajouter une langue'
                         type='text'
                         value={name}
                         onChange={(e) => { setName(e.target.value) }} />
+                    
                     <select
-                        className='admin-input'
+                        className="mb-2 input input-bordered input-success w-full "
                         value={level}
                         onChange={(e) => { setLevel(e.target.value) }}>
                         <option disabled value="" >Sélectionner le niveau</option>
@@ -113,9 +111,11 @@ export default function AdminLangue() {
             }
 
             {langue && langue.map(item =>
-                <div className='admin-competence' key={item._id}>
-                    <p>{item.name}</p>
-                    <p>{item.level}</p>
+                <div className='flex justify-between mb-3 shadow' key={item._id}>
+                    <div className='flex w-4/5'>
+                        <p className='w-1/2'>{item.name}</p>
+                        <p className='w-1/2'>{item.level}</p>
+                    </div>
                     <button><MdDelete color='#E91E63' size={20} onClick={() => handleDelete(item._id)} /></button>
                 </div>)
             }

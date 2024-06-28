@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Admin from './pages/Admin';
 import Page404 from './pages/Page404';
 import { SnackbarProvider } from 'notistack';
+import Login from './pages/Login';
 
 function App() {
 	return (
@@ -13,11 +14,11 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/admin" element={<Admin />} />
+					<Route path="/login" element={<Login />} />
 					<Route path="*" element={<Page404 />} />
 				</Routes>
 			</BrowserRouter>
 		</SnackbarProvider>
 	)
 }
-
 export default App;

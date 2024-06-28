@@ -10,22 +10,17 @@ const BASE_URL = "http://localhost:5555"
 
 export default function Home() {
     return (
-        <div className="container">
-            <Link className='link' to={'/admin'}>ADMIN</Link>
-            <div className='left-side'>
-                <div className='avatar'>
-                    <img src="avatar.png" alt="" />
-                    <h2>NOM & PRENOM</h2>
-                </div>
+        <div className="flex gap-5 p-5 max-md:flex-col">
+            {/* <Link className='link' to={'/admin'}>ADMIN</Link> */}
+            <div className='flex flex-col gap-5 w-1/3 max-md:w-full'>
                 <Contact />
                 <Competence />
-                <Langue />
-                <Loisir />
+                
             </div>
-            <div className='right-side'>
-                <h1>Curriculum Vitae</h1>
-                <Experience />
-                <Formation />
+            <div className='flex flex-col gap-5 w-2/3 max-md:w-full'>
+                {/* <h1 className="text-4xl font-semibold text-center max-md:hidden" >Curriculum Vitae</h1> */}
+                {/* <Experience />
+                <Formation /> */}
             </div>
         </div>
     );

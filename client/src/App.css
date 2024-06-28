@@ -200,12 +200,12 @@ table th {
   width: 100px;
 }
 
-.admin input, .admin select {
+/* .admin input, .admin select {
   padding: 10px;
   width: 100%;
   box-sizing: border-box;
   border-radius: 5px;
-}
+} */
 
 .admin p{
   padding: 10px;
@@ -221,12 +221,12 @@ table th {
   width: 100%;
 }
 
-.admin-contact input{
+/* .admin-contact input{
   padding: 10px;
   width: calc(100% - 100px);
   box-sizing: border-box;
   border-radius: 5px;
-}
+} */
 
 .admin button{
   border-radius: 5px;
@@ -282,10 +282,10 @@ table th {
   gap: 10px;
 }
 
-.admin-input{
+/* .admin-input{
   background-color: white;
   border:2px solid rgb(56, 131, 201);
-}
+} */
 
 
 
