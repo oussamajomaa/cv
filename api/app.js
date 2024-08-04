@@ -15,8 +15,8 @@ const cookieParser = require('cookie-parser');
 mongoose.connect(URL_MONGODB)
     .then(() => {
         console.log('App coonnected to database')
-        app.listen(5555, () => {
-            console.log('server is running on port 5555')
+        app.listen(3333, () => {
+            console.log('server is running on port 3333')
         })
     })
     .catch((error) => {

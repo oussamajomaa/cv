@@ -7,13 +7,19 @@ import AdminFormation from '../components/admin/AdminFormation';
 import AdminExperience from '../components/admin/AdminExperience';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { IoMdArrowRoundForward } from "react-icons/io";
+import Login from './Login';
+import { useState } from 'react';
 
+const url = "https://api-render-2.onrender.com"
 
 export default function Admin() {
+    const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
+	const [logged, setLogged] = useState(false)
     const navigate = useNavigate();
     const logout = async () => {
         console.log('logout')
-        const response = await fetch('http://localhost:5555/logout', {
+        const response = await fetch(`${url}/logout`, {
             method: 'POST',
             credentials: 'include'
         })
@@ -23,9 +29,23 @@ export default function Admin() {
         }
     }
 
-   
-    // if (!localStorage.getItem('token')) {
-    //     return <Navigate to={'/login'}/>
+
+    const handleSubmit = (e) =>{
+        e.preventDefault()
+        if (username === "osm" && password === "osm") {
+            setLogged(true)
+        }
+    }
+
+    // if (!logged) {
+    //     return (
+    //         <Login 
+    //             username={username} 
+    //             password={password} 
+    //             setUsername={(e)=>setUsername(e.target.value)} 
+    //             setPassword={(e)=>setPassword(e.target.value)} 
+    //             handleSubmit={handleSubmit} />
+    //     )
     // }
     return (
         <div className="flex gap-5 p-5 max-md:flex-col">

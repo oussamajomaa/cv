@@ -6,7 +6,6 @@ import Langue from '../components/ui/Langue';
 import Competence from '../components/ui/Competence';
 import Loisir from '../components/ui/Loisir';
 
-const BASE_URL = "http://localhost:5555"
 
 export default function Home() {
     return (

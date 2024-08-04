@@ -4,4 +4,4 @@ export default function AdminCompetence() {
   return (
     <div>AdminCompetence</div>
   )
-}
+}4
